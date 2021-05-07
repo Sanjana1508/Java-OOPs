@@ -81,8 +81,8 @@ public class EarthquakeCityMap extends PApplet {
 		
 		// FOR TESTING: Set earthquakesURL to be one of the testing files by uncommenting
 		// one of the lines below.  This will work whether you are online or offline
-		//earthquakesURL = "test1.atom";
-		//earthquakesURL = "test2.atom";
+		earthquakesURL = "test1.atom";
+		earthquakesURL = "test2.atom";
 		
 		// Uncomment this line to take the quiz
 		//earthquakesURL = "quiz2.atom";
@@ -124,7 +124,7 @@ public class EarthquakeCityMap extends PApplet {
 	    map.addMarkers(quakeMarkers);
 	    map.addMarkers(cityMarkers);
 	    
-	    
+	    sortAndPrint(80);
 	}  // End setup
 	
 	
@@ -137,7 +137,13 @@ public class EarthquakeCityMap extends PApplet {
 	
 	
 	// TODO: Add the method:
-	//   private void sortAndPrint(int numToPrint)
+	  private void sortAndPrint(int numToPrint) {
+		  Object[] quakes = quakeMarkers.toArray();
+		  Arrays.sort(quakes);
+		  for(int i=0;i<numToPrint;i++) {
+			  System.out.println(quakes[i]);
+		  }
+	  }
 	// and then call that method from setUp
 	
 	/** Event handler that gets called automatically when the 
